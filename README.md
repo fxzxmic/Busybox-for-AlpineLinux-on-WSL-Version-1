@@ -1,7 +1,8 @@
-![busybox](https://www.busybox.net/images/busybox1.png "Busybox Icon")
+![busybox](https://www.busybox.net/images/busybox1.png "Busybox")
+![Alpine Linux](https://avatars.githubusercontent.com/u/7600810?s=200&v=4 "Alpine Linux")
 
-# **[Busybox](https://www.busybox.net/)**
-This is a repository of Busybox for Alpine Linux on WSL(Version 1). Configuration only (no [official patches](https://git.alpinelinux.org/aports/tree/main/busybox) from Alpine Linux).
+# **Busybox for Alpine Linux**
+This is a repository of [Busybox](https://www.busybox.net/) for [Alpine Linux](https://www.alpinelinux.org/) on [WSL(Version 1)](https://learn.microsoft.com/en-us/windows/wsl/compare-versions#comparing-wsl-1-and-wsl-2). Configuration only.
 
 ## Purpose
 
@@ -11,14 +12,16 @@ Please compare with the official Alpine Linux [configuration file](https://git.a
 
 ## Usage
 
-1. Download the Busybox source code from [here](https://www.busybox.net/downloads/).
+1. Download the Busybox source code from [here](https://www.busybox.net/downloads/) (note the version).
 
-2. Install dependencies in the `dep.list`.
+2. Patch the source code with [official patches](https://git.alpinelinux.org/aports/tree/main/busybox) from Alpine Linux.
 
-3. Place the configuration file `.config` in the source code root directory.
+3. Install dependencies in the `dep.list` on an Alpine Linux system.
 
-4. Execute `make` on the terminal.
+4. Place the configuration file `.config` in the source code root directory.
+
+5. Execute `make` command.
 
 ## Contribution
 
-Any kind of contribution is welcome.
+Any kind of contribution is welcome. Especially if you find that some commands can't be executed on WSL(Version 1) but I haven't deleted them, or if you think some commands should not be deleted and can be executed on WSL(Version 1) after testing.
