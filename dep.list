@@ -1,1 +1,2 @@
+//Note: The Linux kernel version of WSL(Version 1) is 4.4.0
 perl linux-headers=4.4.6-r2(v3.8/main) musl-dev gcc make
