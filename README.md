@@ -18,7 +18,7 @@ Please compare with the official Alpine Linux [configuration file](https://git.a
 
 3. Install dependencies in the `dep.list` on an Alpine Linux system.
 
-4. Place the configuration file `.config` in the source code root directory.
+4. Place the configuration file `.config` corresponding to the branch of Busybox version in the source code root directory.
 
 5. Execute `make` command.
 
