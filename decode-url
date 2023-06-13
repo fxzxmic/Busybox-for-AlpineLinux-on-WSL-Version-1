@@ -1,6 +1,6 @@
 #!/bin/sh
 if [ "$1" == "-h" -o "$1" == "--help" ]; then
-	echo -e "Decode the standard input string to standard output.\n\nUsage: $(basename $0) string"
+	echo -e "Decode the standard input URL to standard output.\n\nUsage: $(basename $0) URL..."
 else
 	if [[ $# != 0 && "$*" =~ ^[^[:cntrl:]]*$ ]]; then
 		for param in "$@"; do

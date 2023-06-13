@@ -1,6 +1,6 @@
 #!/bin/sh
 if [ "$1" == "-h" -o "$1" == "--help" ]; then
-	echo -e "Minimize the specified resource file.\n\nUsage: $(basename $0) js:css RES-FILE"
+	echo -e "Minimize the specified resource file.\n\nUsage: $(basename $0) js:css RES-FILE DES-FILE"
 else
 	case "$1" in
 		"js")
@@ -11,9 +11,8 @@ else
 		;;
 	esac
 
-	if [ -n "$URL" -a -f "$2" -a -r "$2" ]; then
-		curl -X POST -s --data-urlencode "input=$(cat $2)" $URL
-		unset URL
+	if [ -n "$URL" -a -f "$2" -a -r "$2" -a -f "$3" -a -w "$3" ]; then
+		curl -X POST -s --data-urlencode "input=$(cat "$2")" $URL -o "$(wslpath -m "$3")"
 	else
 		echo "Parameter Error"
 		return 1

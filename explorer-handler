@@ -1,5 +1,5 @@
 #!/bin/sh
-if [ "$#" -ne 0 ]; then
+if [ $# -ne 0 ]; then
 	if [ -e "$@" ]; then
 		rundll url,FileProtocolHandler "$(wslpath -w "$@")"
 	else
