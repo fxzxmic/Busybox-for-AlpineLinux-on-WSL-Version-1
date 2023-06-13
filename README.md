@@ -1,8 +1,5 @@
-![busybox](https://www.busybox.net/images/busybox1.png "Busybox")
-![Alpine Linux](https://avatars.githubusercontent.com/u/7600810?s=200&v=4 "Alpine Linux")
-
-# **Busybox for Alpine Linux**
-This is a repository of [Busybox](https://www.busybox.net/) for [Alpine Linux](https://www.alpinelinux.org/) on [WSL(Version 1)](https://learn.microsoft.com/en-us/windows/wsl/compare-versions#comparing-wsl-1-and-wsl-2). Configuration only.
+# Busybox v1.35.x
+Configuration only.
 
 ## Purpose
 
@@ -14,9 +11,9 @@ Please compare with the official Alpine Linux [configuration file](https://git.a
 
 1. Download the Busybox source code from [here](https://www.busybox.net/downloads/) (note the version).
 
-2. Patch the source code with [official patches](https://git.alpinelinux.org/aports/tree/main/busybox) from Alpine Linux.
+2. Patch the source code with [official patches](https://git.alpinelinux.org/aports/tree/main/busybox) from Alpine Linux. (There is a [patch script](patches/patch-dl.sh) `patches/patch-dl.sh` available, but please note that it should not be executed directly. It is recommended to manually execute after understanding each step of the operation.)
 
-3. Install dependencies in the `dep.list` on an Alpine Linux system.
+3. Install dependencies in the `dep.list` on an Alpine Linux OS.
 
 4. Place the configuration file `.config` corresponding to the branch of Busybox version in the source code root directory.
 
