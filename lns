@@ -1,0 +1,11 @@
+#!/bin/sh
+source_path=$1
+tar_path=$2
+file_ext=$3
+
+for i in $(cd $source_path && find -iname "*.$file_ext")
+do
+	file_name=${i:2}
+	echo "File name: $file_name"
+	ln -s ${source_path%*/}/${file_name} ${tar_path%*/}/${file_name}
+done

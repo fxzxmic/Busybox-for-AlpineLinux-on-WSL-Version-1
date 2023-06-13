@@ -1,0 +1,19 @@
+#!/bin/sh
+if [ "$1" == "-h" -o "$1" == "--help" ]; then
+	echo -e "Decode the standard input string to standard output.\n\nUsage: $(basename $0) string"
+else
+	if [[ $# != 0 && "$*" =~ ^[^[:cntrl:]]*$ ]]; then
+		for param in "$@"; do
+			printf "%s\n" $(printf "%s" "$param" | od -t d1 | awk '{
+				for (i = 2; i <= NF; i++) {
+					printf(($i>=48 && $i<=57) || ($i>=65 && $i<=90) || ($i>=97 && $i<=122) ||
+					$i==45 || $i==46 || $i==95 || $i==126 ?
+					"%c" : "%%%02X", $i)
+				}
+			}')
+		done
+	else
+		echo "Parameter Error"
+		return 1
+	fi
+fi

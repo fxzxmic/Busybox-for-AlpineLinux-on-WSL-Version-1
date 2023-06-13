@@ -1,0 +1,13 @@
+#!/bin/sh
+if [ "$1" == "-h" -o "$1" == "--help" ]; then
+	echo -e "Decode the standard input string to standard output.\n\nUsage: $(basename $0) string"
+else
+	if [[ $# != 0 && "$*" =~ ^[^[:cntrl:]]*$ ]]; then
+		for param in "$@"; do
+			printf "%s\n" $(printf "%s\n" "$param" | base64 -d)
+		done
+	else
+		echo "Parameter Error"
+		return 1
+	fi
+fi

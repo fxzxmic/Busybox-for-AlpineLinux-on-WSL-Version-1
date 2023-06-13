@@ -1,0 +1,14 @@
+#!/bin/sh
+if [ "$1" == "-h" -o "$1" == "--help" ]; then
+	echo -e "Decode the standard input string to standard output.\n\nUsage: $(basename $0) string"
+else
+	if [[ $# != 0 && "$*" =~ ^[^[:cntrl:]]*$ ]]; then
+		for param in "$@"; do
+			i="${param//+/ }"
+			printf "${i//%/\\x}\n"
+		done
+	else
+		echo "Parameter Error"
+		return 1
+	fi
+fi

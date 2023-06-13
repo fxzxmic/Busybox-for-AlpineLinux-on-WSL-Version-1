@@ -1,0 +1,10 @@
+#!/bin/sh
+if [ "$#" -ne 0 ]; then
+	if [ -e "$@" ]; then
+		rundll url,FileProtocolHandler "$(wslpath -w "$@")"
+	else
+		rundll url,FileProtocolHandler "$@"
+	fi
+else
+	rundll url,FileProtocolHandler "$(wslpath -w $HOME)"
+fi

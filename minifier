@@ -1,0 +1,21 @@
+#!/bin/sh
+if [ "$1" == "-h" -o "$1" == "--help" ]; then
+	echo -e "Minimize the specified resource file.\n\nUsage: $(basename $0) js:css RES-FILE"
+else
+	case "$1" in
+		"js")
+			URL="https://www.toptal.com/developers/javascript-minifier/api/raw"
+		;;
+		"css")
+			URL="https://www.toptal.com/developers/cssminifier/api/raw"
+		;;
+	esac
+
+	if [ -n "$URL" -a -f "$2" -a -r "$2" ]; then
+		curl -X POST -s --data-urlencode "input=$(cat $2)" $URL
+		unset URL
+	else
+		echo "Parameter Error"
+		return 1
+	fi
+fi
