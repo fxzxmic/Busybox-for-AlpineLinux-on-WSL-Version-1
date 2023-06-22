@@ -7,7 +7,7 @@ else
 			printf "%s" "$param" | base64
 		done
 	else
-		echo "Parameter Error"
+		echo "Parameter Error" >&2
 		return 1
 	fi
 fi
