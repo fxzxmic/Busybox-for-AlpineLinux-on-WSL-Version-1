@@ -1,6 +1,6 @@
-for file in $(curl https://gitlab.alpinelinux.org/alpine/aports/-/refs/master/logs_tree/main%2Fbusybox?format=json\&offset=20 | jq -r .[].file_name); do
+for file in $(curl https://gitlab.alpinelinux.org/alpine/aports/-/refs/3.18-stable/logs_tree/main%2Fbusybox?format=json\&offset=0 | jq -r .[].file_name); do
 	if [ "${file##*.}" == "patch" -a ! -e "$file" ]; then
-		wget https://gitlab.alpinelinux.org/alpine/aports/-/raw/master/main/busybox/$file
+		wget https://gitlab.alpinelinux.org/alpine/aports/-/raw/3.18-stable/main/busybox/$file
 	fi
 done
 cd ..
