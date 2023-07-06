@@ -11,8 +11,8 @@ else
 		;;
 	esac
 
-	if [ -n "$URL" -a -f "$2" -a -r "$2" -a -f "$3" -a -w "$3" ]; then
-		curl -X POST -s --data-urlencode "input=$(cat "$2")" $URL -o "$(wslpath -m "$3")" --fail
+	if [ -n "$URL" -a -f "$2" -a -r "$2" ] && [ ! -e "$3" -o -f "$3" -a -w "$3" ]; then
+		curl -X POST -s --data-urlencode "input=$(cat "$2")" $URL --fail > "$3"
 	else
 		echo "Parameter Error" >&2
 		return 1
